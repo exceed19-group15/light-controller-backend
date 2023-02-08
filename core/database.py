@@ -1,9 +1,10 @@
 import os
 
+from constants import *
 from pymongo import MongoClient
 
 client = MongoClient(
-    f"mongodb://{os.getenv('mongo_username')}:{os.getenv('mongo_password')}@{os.getenv('mongo_host')}:{os.getenv('mongo_port')}"
+    f"mongodb://{MONGO_DB_USERNAME}:{MONGO_DB_PASSWORD}@{MONGO_DB_HOST}:{MONGO_DB_PORT}"
 )
 
 db = client["exceed15"]

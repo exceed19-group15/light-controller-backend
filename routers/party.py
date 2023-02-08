@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 
-from core.database import collection, db
 from models.party import PartyModel
 
 router = APIRouter(prefix="/party")
