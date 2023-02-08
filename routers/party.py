@@ -1,7 +1,8 @@
+from typing import Dict
+
 from fastapi import APIRouter
 
-from models.party import PartyModel
-from typing import Dict
+from models.party import PartyPutModel
 
 router = APIRouter(prefix="/party")
 party_state: bool = False
@@ -13,7 +14,7 @@ def get_party() -> Dict[str, bool]:
 
 
 @router.put("/")
-def put_party(party: PartyModel) -> Dict[str, str]:
+def put_party(party: PartyPutModel) -> Dict[str, str]:
     body = party.dict()
     global party_state
     party_state = body["party"]

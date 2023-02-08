@@ -1,5 +1,5 @@
-from pydantic import BaseModel, validator
+from pydantic import BaseModel
 
 
-class PartyModel(BaseModel):
+class PartyPutModel(BaseModel):
     party: bool
