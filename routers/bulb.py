@@ -1,8 +1,9 @@
+from typing import Dict, List
+
 from fastapi import APIRouter
 
-from models.bulb import BulbModel, BulbPutModel
 from core.database import collection
-from typing import List, Dict
+from models.bulb import BulbModel, BulbPutModel
 
 router = APIRouter(prefix="/bulb")
 
@@ -19,5 +20,11 @@ def get_bulb(bulb_id: int) -> BulbModel:
 
 @router.put("/{bulb_id}")
 def put_bulb(bulb_id: int, bulb_body: BulbPutModel) -> Dict[str, str]:
-    collection.update_one({"bulb_id": bulb_id}, {"$set": bulb_body.dict()})
+    update_body = bulb_body.dict()
+
+    for k in tuple(update_body.keys()):
+        if update_body[k] is None:
+            del update_body[k]
+
+    collection.update_one({"bulb_id": bulb_id}, {"$set": update_body})
     return {"message": "Update successful"}
