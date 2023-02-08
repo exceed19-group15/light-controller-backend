@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 
+from core.database import collection, db
 from models.bulb import BulbModel, BulbPutModel
 
 router = APIRouter(prefix="/bulb")
