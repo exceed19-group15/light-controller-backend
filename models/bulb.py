@@ -10,8 +10,8 @@ class BulbModel(BaseModel):
 
     @validator("light_level")
     def valid_light_level(light_level: int):
-        if light_level > 100 or light_level < 0:
-            raise ValueError("Light level can't be above 100 or below 0")
+        if light_level > 255 or light_level < 0:
+            raise ValueError("Light level can't be above 255 or below 0")
         return light_level
 
 
@@ -22,6 +22,6 @@ class BulbPutModel(BaseModel):
 
     @validator("light_level")
     def valid_light_level(light_level: int):
-        if light_level > 100 or light_level < 0:
-            raise ValueError("Light level can't be above 100 or below 0")
+        if light_level > 255 or light_level < 0:
+            raise ValueError("Light level can't be above 255 or below 0")
         return light_level
