@@ -1,7 +1,8 @@
 import os
 
-from constants import *
 from pymongo import MongoClient
+
+from .constants import *
 
 client = MongoClient(
     f"mongodb://{MONGO_DB_USERNAME}:{MONGO_DB_PASSWORD}@{MONGO_DB_HOST}:{MONGO_DB_PORT}"
