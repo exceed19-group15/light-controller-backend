@@ -2,7 +2,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
 
-origins = ["*"]
+origins = [
+    "http://group15.exceed19.online",
+    "https://group15.exceed19.online",
+    "http://group15.exceed19.online:80",
+    "https://group15.exceed19.online:80",
+    "http://localhost",
+    "http://localhost:80",
+]
 
 from routers import bulb, party
 
